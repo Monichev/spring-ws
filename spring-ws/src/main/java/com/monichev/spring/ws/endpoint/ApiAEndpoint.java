@@ -6,6 +6,7 @@ import java.util.List;
 import com.monichev.spring.ws.api_a.types.GetTypeAList;
 import com.monichev.spring.ws.api_a.types.GetTypeAListResponse;
 import com.monichev.spring.ws.api_a.types.TypeA;
+import com.monichev.spring.ws.utils.TypeUtils;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,16 +21,16 @@ public class ApiAEndpoint {
     private static final Logger LOGGER = LoggerFactory.getLogger(ApiAEndpoint.class);
 
     private final List<TypeA> typeAList = Arrays.asList(
-            createTypeA(1, "1", "1.1"),
-            createTypeA(2, "2", "2.2"),
-            createTypeA(3, "3", "3.3")
+            createTypeA(1, "1", 1.1),
+            createTypeA(2, "2", 2.2),
+            createTypeA(3, "3", 3.3)
     );
 
-    private static TypeA createTypeA(long id, String value1, String value2) {
+    private static TypeA createTypeA(long id, String name, double seconds) {
         TypeA result = new TypeA();
         result.setId(id);
-        result.setValue1(value1);
-        result.setValue2(value2);
+        result.setName(name);
+        result.setTimestamp(TypeUtils.createTimestamp(seconds));
         return result;
     }
 

@@ -10,6 +10,8 @@ import org.springframework.ws.config.annotation.WsConfigurerAdapter;
 import org.springframework.ws.transport.http.MessageDispatcherServlet;
 import org.springframework.ws.wsdl.wsdl11.SimpleWsdl11Definition;
 import org.springframework.ws.wsdl.wsdl11.Wsdl11Definition;
+import org.springframework.xml.xsd.SimpleXsdSchema;
+import org.springframework.xml.xsd.XsdSchema;
 
 @EnableWs
 @Configuration
@@ -30,5 +32,10 @@ public class WebServiceConfig extends WsConfigurerAdapter {
     @Bean(name = "api-b")
     public Wsdl11Definition apiB() {
         return new SimpleWsdl11Definition(new ClassPathResource("/wsdl/api-b.wsdl"));
+    }
+
+    @Bean(name = "common")
+    public XsdSchema commonXsd() {
+        return new SimpleXsdSchema(new ClassPathResource("/wsdl/common.xsd"));
     }
 }

@@ -46,7 +46,7 @@ static void inlineXsdToWsdl(String wsdlDirectory, boolean isVerbose) {
 
 static void deleteAllXsdFiles(String wsdlDirectory, boolean isVerbose) {
     new File(wsdlDirectory).eachFileRecurse(FileType.FILES) { file ->
-        if (file.getName().endsWith(".xsd")) {
+        if (file.getName().endsWith(".xsd") && file.getName() != "common.xsd") {
             if (isVerbose) {
                 println "deleting xsd: " + file
             }

@@ -11,7 +11,16 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <java.version>1.8</java.version>
+    <wsdl.prepare.directory>${project.build.directory}/wsdl-prepare</wsdl.prepare.directory>
   </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>com.monichev.spring.ws</groupId>
+      <artifactId>spring-ws-common-types</artifactId>
+      <version>1.0-SNAPSHOT</version>
+    </dependency>
+  </dependencies>
 
   <build>
     <resources>
@@ -25,19 +34,90 @@
     </resources>
     <plugins>
       <plugin>
+        <artifactId>maven-resources-plugin</artifactId>
+        <version>3.1.0</version>
+        <executions>
+          <execution>
+            <id>copy-resources</id>
+            <phase>generate-sources</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>${wsdl.prepare.directory}</outputDirectory>
+              <resources>
+                <resource>
+                  <directory>src/wsdl</directory>
+                  <filtering>true</filtering>
+                </resource>
+              </resources>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <version>3.1.1</version>
+        <executions>
+          <execution>
+            <id>unpack-xsd</id>
+            <phase>generate-sources</phase>
+            <goals>
+              <goal>unpack</goal>
+            </goals>
+            <configuration>
+              <artifactItems>
+                <artifactItem>
+                  <groupId>com.monichev.spring.ws</groupId>
+                  <artifactId>spring-ws-common-types</artifactId>
+                  <version>1.0-SNAPSHOT</version>
+                </artifactItem>
+              </artifactItems>
+              <includes>*.xsd</includes>
+              <outputDirectory>${wsdl.prepare.directory}</outputDirectory>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>jaxws-maven-plugin</artifactId>
         <version>2.5</version>
         <executions>
           <execution>
+            <id>generate-wsdl-sources</id>
+            <phase>generate-sources</phase>
             <goals>
               <goal>wsimport</goal>
             </goals>
             <configuration>
               <wsdlFiles>
-                <wsdlFile>api-b.wsdl</wsdlFile>
+                <wsdlFile>${wsdl.prepare.directory}/api-b.wsdl</wsdlFile>
               </wsdlFiles>
               <wsdlLocation>http://localhost:8080/spring-ws/api-b.wsdl</wsdlLocation>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <artifactId>maven-clean-plugin</artifactId>
+        <version>3.1.0</version>
+        <executions>
+          <execution>
+            <id>remove-common-classes</id>
+            <phase>generate-sources</phase>
+            <goals>
+              <goal>clean</goal>
+            </goals>
+            <configuration>
+              <verbose>true</verbose>
+              <excludeDefaultDirectories>true</excludeDefaultDirectories>
+              <filesets>
+                <fileset>
+                  <directory>${project.build.directory}/classes/com/monichev/spring/ws/common</directory>
+                </fileset>
+              </filesets>
             </configuration>
           </execution>
         </executions>

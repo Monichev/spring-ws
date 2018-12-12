@@ -89,6 +89,24 @@
               <outputDirectory>${project.build.directory}/classes</outputDirectory>
             </configuration>
           </execution>
+          <execution>
+            <id>unpack-common-xsd</id>
+            <phase>package</phase>
+            <goals>
+              <goal>unpack</goal>
+            </goals>
+            <configuration>
+              <artifactItems>
+                <artifactItem>
+                  <groupId>com.monichev.spring.ws</groupId>
+                  <artifactId>spring-ws-common-types</artifactId>
+                  <version>1.0-SNAPSHOT</version>
+                </artifactItem>
+              </artifactItems>
+              <includes>*.xsd</includes>
+              <outputDirectory>${project.build.directory}/classes/wsdl</outputDirectory>
+            </configuration>
+          </execution>
         </executions>
       </plugin>
       <plugin>
@@ -121,4 +139,5 @@
       </plugin>
     </plugins>
   </build>
+
 </project>

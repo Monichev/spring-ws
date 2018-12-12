@@ -6,6 +6,7 @@ import java.util.List;
 import com.monichev.spring.ws.api_b.types.GetTypeBList;
 import com.monichev.spring.ws.api_b.types.GetTypeBListResponse;
 import com.monichev.spring.ws.api_b.types.TypeB;
+import com.monichev.spring.ws.utils.TypeUtils;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,16 +21,16 @@ public class ApiBEndpoint {
     private static final Logger LOGGER = LoggerFactory.getLogger(ApiBEndpoint.class);
 
     private final List<TypeB> typeBList = Arrays.asList(
-            createTypeB(1, "1", "1.1"),
-            createTypeB(2, "2", "2.2"),
-            createTypeB(3, "3", "3.3")
+            createTypeB(1, "1", 1.1),
+            createTypeB(2, "2", 2.2),
+            createTypeB(3, "3", 3.3)
     );
 
-    private static TypeB createTypeB(long id, String value1, String value2) {
+    private static TypeB createTypeB(long id, String name, double seconds) {
         TypeB result = new TypeB();
         result.setId(id);
-        result.setValue1(value1);
-        result.setValue2(value2);
+        result.setName(name);
+        result.setTimestamp(TypeUtils.createTimestamp(seconds));
         return result;
     }
 

@@ -10,8 +10,10 @@
   <packaging>pom</packaging>
 
   <modules>
+    <module>spring-ws-common-types</module>
     <module>spring-ws-api-a</module>
     <module>spring-ws-api-b</module>
     <module>spring-ws</module>
   </modules>
+
 </project>

@@ -3,7 +3,10 @@
     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
     targetNamespace="http://ws.spring.monichev.com/api-a/types"
     xmlns="http://ws.spring.monichev.com/api-a/types"
+    xmlns:common="http://ws.spring.monichev.com/common/types"
     elementFormDefault="qualified">
+
+  <xsd:import namespace="http://ws.spring.monichev.com/common/types" schemaLocation="common.xsd"/>
 
   <xsd:complexType name="typeA">
     <xsd:annotation>
@@ -15,16 +18,17 @@
           <xsd:documentation>Identification number</xsd:documentation>
         </xsd:annotation>
       </xsd:element>
-      <xsd:element name="value1" type="xsd:string">
+      <xsd:element name="name" type="xsd:string">
         <xsd:annotation>
-          <xsd:documentation>Value 1</xsd:documentation>
+          <xsd:documentation>Name</xsd:documentation>
         </xsd:annotation>
       </xsd:element>
-      <xsd:element name="value2" type="xsd:string">
+      <xsd:element name="timestamp" type="common:timestamp">
         <xsd:annotation>
-          <xsd:documentation>Value 2</xsd:documentation>
+          <xsd:documentation>Timestamp</xsd:documentation>
         </xsd:annotation>
       </xsd:element>
     </xsd:sequence>
   </xsd:complexType>
+
 </xsd:schema>

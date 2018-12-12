@@ -4,6 +4,7 @@
                   xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
                   xmlns:tns="http://ws.spring.monichev.com/api-b"
                   xmlns:types="http://ws.spring.monichev.com/api-b/types"
+                  xmlns:common="http://ws.spring.monichev.com/common/types"
                   xmlns:xsd="http://www.w3.org/2001/XMLSchema"
                   targetNamespace="http://ws.spring.monichev.com/api-b">
 
