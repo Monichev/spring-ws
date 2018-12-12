@@ -36,7 +36,7 @@ public class ApiAEndpoint {
     @PayloadRoot(namespace = "http://ws.spring.monichev.com/api-a/types", localPart = "getTypeAList")
     @ResponsePayload
     public GetTypeAListResponse getTypeAList(@RequestPayload GetTypeAList request) {
-        LOGGER.info("getTypeAList");
+        LOGGER.debug("getTypeAList");
         GetTypeAListResponse response = new GetTypeAListResponse();
         response.getTypeAList().addAll(typeAList);
         return response;

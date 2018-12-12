@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://ws.spring.monichev.com/api-b/types"
+    xmlns="http://ws.spring.monichev.com/api-b/types"
+    elementFormDefault="qualified">
+
+  <xsd:complexType name="typeB">
+    <xsd:annotation>
+      <xsd:documentation>Type B</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="id" type="xsd:long">
+        <xsd:annotation>
+          <xsd:documentation>Identification number</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="value1" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Value 1</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="value2" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Value 2</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

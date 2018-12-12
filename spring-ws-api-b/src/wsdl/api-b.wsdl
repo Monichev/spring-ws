@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions name="api-b"
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:tns="http://ws.spring.monichev.com/api-b"
+                  xmlns:types="http://ws.spring.monichev.com/api-b/types"
+                  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                  targetNamespace="http://ws.spring.monichev.com/api-b">
+
+    <wsdl:types>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                    targetNamespace="http://ws.spring.monichev.com/api-b/types"
+                    elementFormDefault="qualified">
+            <xsd:include schemaLocation="api-b.xsd"/>
+
+            <xsd:element name="getTypeBList">
+                <xsd:complexType/>
+            </xsd:element>
+            <xsd:element name="getTypeBListResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="typeBList" type="types:typeB" minOccurs="0" maxOccurs="unbounded">
+                            <xsd:annotation>
+                                <xsd:documentation>List of all type B objects</xsd:documentation>
+                            </xsd:annotation>
+                        </xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+
+        </xsd:schema>
+    </wsdl:types>
+
+    <wsdl:message name="getTypeBListRequest">
+        <wsdl:part name="parameters" element="types:getTypeBList"/>
+    </wsdl:message>
+    <wsdl:message name="getTypeBListResponse">
+        <wsdl:part name="parameters" element="types:getTypeBListResponse"/>
+    </wsdl:message>
+
+    <wsdl:portType name="apiB">
+        <wsdl:operation name="getTypeBList">
+            <wsdl:documentation>Get a list of all Type A objects</wsdl:documentation>
+            <wsdl:input message="tns:getTypeBListRequest"/>
+            <wsdl:output message="tns:getTypeBListResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+
+    <wsdl:binding name="apiBBinding" type="tns:apiB">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="getTypeBList">
+            <soap:operation soapAction="http://ws.spring.monichev.com/api-b/getTypeAs"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+
+    <wsdl:service name="ApiBImpl">
+        <wsdl:documentation>API B Service</wsdl:documentation>
+        <wsdl:port name="apiBPort" binding="tns:apiBBinding">
+            <soap:address location="http://localhost:8080/spring-ws/api-b.wsdl"/>
+        </wsdl:port>
+    </wsdl:service>
+
+</wsdl:definitions>
