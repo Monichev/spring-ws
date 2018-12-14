@@ -14,6 +14,7 @@
     <module>spring-ws-api-a</module>
     <module>spring-ws-api-b</module>
     <module>spring-ws</module>
+    <module>spring-ws-client</module>
   </modules>
 
 </project>
