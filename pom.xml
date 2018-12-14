@@ -15,6 +15,7 @@
     <module>spring-ws-api-b</module>
     <module>spring-ws</module>
     <module>spring-ws-client</module>
+    <module>legacy-ws-client</module>
   </modules>
 
 </project>
