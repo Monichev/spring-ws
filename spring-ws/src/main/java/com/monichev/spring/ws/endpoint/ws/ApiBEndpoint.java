@@ -1,4 +1,4 @@
-package com.monichev.spring.ws.endpoint;
+package com.monichev.spring.ws.endpoint.ws;
 
 import com.monichev.spring.ws.api_b.types.GetTypeBList;
 import com.monichev.spring.ws.api_b.types.GetTypeBListResponse;
