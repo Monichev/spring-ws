@@ -28,6 +28,44 @@
                 </xsd:complexType>
             </xsd:element>
 
+            <xsd:element name="addTypeA">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="typeA" type="types:typeA">
+                            <xsd:annotation>
+                                <xsd:documentation>Type A object</xsd:documentation>
+                            </xsd:annotation>
+                        </xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="addTypeAResponse">
+                <xsd:complexType/>
+            </xsd:element>
+
+            <xsd:element name="removeTypeA">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="id" type="xsd:long">
+                            <xsd:annotation>
+                                <xsd:documentation>ID of Type A object</xsd:documentation>
+                            </xsd:annotation>
+                        </xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="removeTypeAResponse">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="removedTypeA" type="types:typeA" minOccurs="0">
+                            <xsd:annotation>
+                                <xsd:documentation>Removed Type A object</xsd:documentation>
+                            </xsd:annotation>
+                        </xsd:element>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+
         </xsd:schema>
     </wsdl:types>
 
@@ -38,18 +76,60 @@
         <wsdl:part name="parameters" element="types:getTypeAListResponse"/>
     </wsdl:message>
 
+    <wsdl:message name="addTypeARequest">
+        <wsdl:part name="parameters" element="types:addTypeA"/>
+    </wsdl:message>
+    <wsdl:message name="addTypeAResponse">
+        <wsdl:part name="parameters" element="types:addTypeAResponse"/>
+    </wsdl:message>
+
+    <wsdl:message name="removeTypeARequest">
+        <wsdl:part name="parameters" element="types:removeTypeA"/>
+    </wsdl:message>
+    <wsdl:message name="removeTypeAResponse">
+        <wsdl:part name="parameters" element="types:removeTypeAResponse"/>
+    </wsdl:message>
+
     <wsdl:portType name="apiA">
         <wsdl:operation name="getTypeAList">
             <wsdl:documentation>Get a list of all Type A objects</wsdl:documentation>
             <wsdl:input message="tns:getTypeAListRequest"/>
             <wsdl:output message="tns:getTypeAListResponse"/>
         </wsdl:operation>
+        <wsdl:operation name="addTypeA">
+            <wsdl:documentation>Add a Type A object to list</wsdl:documentation>
+            <wsdl:input message="tns:addTypeARequest"/>
+            <wsdl:output message="tns:addTypeAResponse"/>
+        </wsdl:operation>
+        <wsdl:operation name="removeTypeA">
+            <wsdl:documentation>Remove a Type A object with given ID from list</wsdl:documentation>
+            <wsdl:input message="tns:removeTypeARequest"/>
+            <wsdl:output message="tns:removeTypeAResponse"/>
+        </wsdl:operation>
     </wsdl:portType>
 
     <wsdl:binding name="apiABinding" type="tns:apiA">
         <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
         <wsdl:operation name="getTypeAList">
-            <soap:operation soapAction="http://ws.spring.monichev.com/api-a/getTypeAs"/>
+            <soap:operation soapAction="http://ws.spring.monichev.com/api-a/getTypeAList"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="addTypeA">
+            <soap:operation soapAction="http://ws.spring.monichev.com/api-a/addTypeA"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="removeTypeA">
+            <soap:operation soapAction="http://ws.spring.monichev.com/api-a/removeTypeA"/>
             <wsdl:input>
                 <soap:body use="literal"/>
             </wsdl:input>

@@ -1,6 +1,9 @@
 package com.monichev.spring.ws.client;
 
+import com.monichev.spring.ws.api_a.types.AddTypeAResponse;
 import com.monichev.spring.ws.api_a.types.GetTypeAListResponse;
+import com.monichev.spring.ws.api_a.types.RemoveTypeAResponse;
+import com.monichev.spring.ws.api_a.types.TypeA;
 import com.monichev.spring.ws.api_b.types.GetTypeBListResponse;
 import com.monichev.spring.ws.client.endpoint.ApiAClient;
 import com.monichev.spring.ws.client.endpoint.ApiBClient;
@@ -12,6 +15,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.ws.soap.client.SoapFaultClientException;
 
 @SpringBootApplication
 public class Application {
@@ -27,6 +31,19 @@ public class Application {
         return args -> {
             GetTypeAListResponse response = apiAClient.getTypeAList();
             response.getTypeAList().forEach(it -> LOGGER.info(TypeConverter.toString(it)));
+            TypeA typeA = new TypeA();
+            typeA.setId(1);
+            try {
+                apiAClient.addTypeA(typeA);
+            } catch (SoapFaultClientException e) {
+                LOGGER.info(e.toString());
+            }
+            typeA.setId(10);
+            apiAClient.addTypeA(typeA);
+            RemoveTypeAResponse removeTypeAResponse = apiAClient.removeTypeA(10);
+            LOGGER.info("remove ID 10 result: " + TypeConverter.toString(removeTypeAResponse.getRemovedTypeA()));
+            removeTypeAResponse = apiAClient.removeTypeA(10);
+            LOGGER.info("remove ID 10 result: " + TypeConverter.toString(removeTypeAResponse.getRemovedTypeA()));
         };
     }
 
