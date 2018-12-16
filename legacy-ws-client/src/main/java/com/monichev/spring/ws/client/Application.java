@@ -6,13 +6,13 @@ import java.util.List;
 
 import javax.xml.namespace.QName;
 import javax.xml.ws.Service;
+import javax.xml.ws.WebServiceException;
 
 import com.monichev.spring.ws.api_a.ApiA;
 import com.monichev.spring.ws.api_a.types.TypeA;
 import com.monichev.spring.ws.api_b.ApiB;
 import com.monichev.spring.ws.api_b.types.TypeB;
 import com.monichev.spring.ws.client.util.TypeConverter;
-import com.sun.xml.internal.ws.fault.ServerSOAPFaultException;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -42,7 +42,7 @@ public class Application {
         typeA.setId(1);
         try {
             apiA.addTypeA(typeA);
-        } catch (ServerSOAPFaultException e) {
+        } catch (WebServiceException e) {
             LOGGER.info(e.toString());
         }
         LOGGER.info("addTypeA valid");
