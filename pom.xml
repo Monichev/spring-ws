@@ -13,7 +13,7 @@
     <module>spring-ws-common-types</module>
     <module>spring-ws-api-a</module>
     <module>spring-ws-api-b</module>
-    <module>spring-ws</module>
+    <module>spring-ws-server</module>
     <module>spring-ws-client</module>
     <module>legacy-ws-client</module>
   </modules>

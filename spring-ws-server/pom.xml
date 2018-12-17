@@ -12,7 +12,7 @@
   </parent>
 
   <groupId>com.monichev.spring.ws</groupId>
-  <artifactId>spring-ws</artifactId>
+  <artifactId>spring-ws-server</artifactId>
   <version>1.0-SNAPSHOT</version>
 
   <properties>
