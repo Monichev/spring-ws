@@ -1,5 +1,7 @@
 package com.monichev.spring.ws.service;
 
+import static com.monichev.spring.ws.utils.TypeUtils.createTypeA;
+
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -20,14 +22,6 @@ public class ApiAService implements ApiA {
         typeAList.put(1L, createTypeA(1, "1", 1.1));
         typeAList.put(2L, createTypeA(2, "2", 2.2));
         typeAList.put(3L, createTypeA(3, "3", 3.3));
-    }
-
-    private static TypeA createTypeA(long id, String name, double seconds) {
-        TypeA result = new TypeA();
-        result.setId(id);
-        result.setName(name);
-        result.setTimestamp(TypeUtils.createTimestamp(seconds));
-        return result;
     }
 
     @Override

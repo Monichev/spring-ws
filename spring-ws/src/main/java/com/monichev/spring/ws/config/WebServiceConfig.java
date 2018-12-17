@@ -25,12 +25,12 @@ public class WebServiceConfig extends WsConfigurerAdapter {
     }
 
     @Bean(name = "api-a")
-    public Wsdl11Definition apiA() {
+    public Wsdl11Definition apiAWsdl() {
         return new SimpleWsdl11Definition(new ClassPathResource("/wsdl/api-a.wsdl"));
     }
 
     @Bean(name = "api-b")
-    public Wsdl11Definition apiB() {
+    public Wsdl11Definition apiBWsdl() {
         return new SimpleWsdl11Definition(new ClassPathResource("/wsdl/api-b.wsdl"));
     }
 
