@@ -4,14 +4,13 @@
                   xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
                   xmlns:tns="http://ws.spring.monichev.com/api-a"
                   xmlns:types="http://ws.spring.monichev.com/api-a/types"
-                  xmlns:common="http://ws.spring.monichev.com/common/types"
                   targetNamespace="http://ws.spring.monichev.com/api-a">
 
     <wsdl:types>
         <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
                     targetNamespace="http://ws.spring.monichev.com/api-a/types"
                     elementFormDefault="qualified">
-            <xsd:include schemaLocation="api-a.xsd"/>
+            <xsd:include schemaLocation="api-a-types.xsd"/>
 
             <xsd:element name="getTypeAList">
                 <xsd:complexType/>

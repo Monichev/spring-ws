@@ -109,34 +109,6 @@
           </execution>
         </executions>
       </plugin>
-      <plugin>
-        <groupId>org.codehaus.gmaven</groupId>
-        <artifactId>groovy-maven-plugin</artifactId>
-        <version>2.1</version>
-        <executions>
-          <execution>
-            <id>inline-xsd-to-wsdl</id>
-            <phase>package</phase>
-            <goals>
-              <goal>execute</goal>
-            </goals>
-            <configuration>
-              <properties>
-                <wsdlDir>${project.build.directory}/classes/wsdl</wsdlDir>
-                <verbose>true</verbose>
-              </properties>
-              <source>${basedir}/scripts/InlineXsdToWsdl.groovy</source>
-            </configuration>
-          </execution>
-        </executions>
-        <dependencies>
-          <dependency>
-            <groupId>org.codehaus.groovy</groupId>
-            <artifactId>groovy-all</artifactId>
-            <version>2.0.6</version>
-          </dependency>
-        </dependencies>
-      </plugin>
     </plugins>
   </build>
 

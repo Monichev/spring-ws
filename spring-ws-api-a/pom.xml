@@ -107,7 +107,7 @@
         <executions>
           <execution>
             <id>remove-common-classes</id>
-            <phase>generate-sources</phase>
+            <phase>process-classes</phase>
             <goals>
               <goal>clean</goal>
             </goals>

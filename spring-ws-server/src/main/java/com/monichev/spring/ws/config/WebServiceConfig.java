@@ -24,9 +24,19 @@ public class WebServiceConfig extends WsConfigurerAdapter {
         return new ServletRegistrationBean<>(servlet, "/spring-ws/*");
     }
 
+    @Bean(name = "common")
+    public XsdSchema commonXsd() {
+        return new SimpleXsdSchema(new ClassPathResource("/wsdl/common.xsd"));
+    }
+
     @Bean(name = "api-a")
     public Wsdl11Definition apiAWsdl() {
         return new SimpleWsdl11Definition(new ClassPathResource("/wsdl/api-a.wsdl"));
+    }
+
+    @Bean(name = "api-a-types")
+    public XsdSchema apiAXsd() {
+        return new SimpleXsdSchema(new ClassPathResource("/wsdl/api-a-types.xsd"));
     }
 
     @Bean(name = "api-b")
@@ -34,8 +44,8 @@ public class WebServiceConfig extends WsConfigurerAdapter {
         return new SimpleWsdl11Definition(new ClassPathResource("/wsdl/api-b.wsdl"));
     }
 
-    @Bean(name = "common")
-    public XsdSchema commonXsd() {
-        return new SimpleXsdSchema(new ClassPathResource("/wsdl/common.xsd"));
+    @Bean(name = "api-b-types")
+    public XsdSchema apiBXsd() {
+        return new SimpleXsdSchema(new ClassPathResource("/wsdl/api-b-types.xsd"));
     }
 }
