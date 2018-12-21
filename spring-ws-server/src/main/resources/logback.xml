@@ -12,5 +12,6 @@
   </root>
 
   <logger name="com.monichev.spring.ws" level="DEBUG"/>
+  <!--<logger name="io.undertow" level="DEBUG"/>-->
 
 </configuration>
