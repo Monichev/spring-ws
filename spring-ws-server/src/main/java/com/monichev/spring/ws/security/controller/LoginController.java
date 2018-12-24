@@ -24,9 +24,10 @@ public class LoginController {
     @PostMapping("/login")
     String login(
             @RequestParam("username") String username,
-            @RequestParam("password") String password) {
+            @RequestParam("password") String password,
+            @RequestParam(value = "level", required = false) Integer level) {
         return authentication
-                .login(new User(username, password))
+                .login(new User(username, password, level))
                 .orElseThrow(() -> new RuntimeException("invalid login and/or password"));
     }
 

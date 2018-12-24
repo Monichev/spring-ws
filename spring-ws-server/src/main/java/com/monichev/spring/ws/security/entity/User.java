@@ -12,10 +12,16 @@ import org.springframework.security.core.userdetails.UserDetails;
 public class User implements UserDetails {
     private final String username;
     private final String password;
+    private final Integer level;
 
-    public User(String username, String password) {
+    public User(String username, String password, Integer level) {
         this.username = requireNonNull(username);
         this.password = requireNonNull(password);
+        this.level = level;
+    }
+
+    public Integer getLevel() {
+        return level;
     }
 
     @Override
@@ -57,6 +63,7 @@ public class User implements UserDetails {
     public String toString() {
         return "User{" +
                 "username='" + username + '\'' +
+                ", level=" + level +
                 '}';
     }
 
@@ -69,11 +76,12 @@ public class User implements UserDetails {
             return false;
         }
         User user = (User) o;
-        return Objects.equals(username, user.username);
+        return Objects.equals(username, user.username) &&
+                Objects.equals(level, user.level);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(username);
+        return Objects.hash(username, level);
     }
 }
