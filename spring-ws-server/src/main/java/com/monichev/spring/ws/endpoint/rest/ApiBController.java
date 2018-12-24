@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController()
+@RestController
 @RequestMapping("/spring-rs/api-b")
-public class ApiBController implements ApiB {
+class ApiBController implements ApiB {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ApiBController.class);
 

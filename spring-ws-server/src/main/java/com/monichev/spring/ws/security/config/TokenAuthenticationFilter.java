@@ -18,7 +18,8 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.filter.GenericFilterBean;
 
-final class TokenAuthenticationFilter extends GenericFilterBean implements InitializingBean {
+class TokenAuthenticationFilter extends GenericFilterBean implements InitializingBean {
+
     private static final String AUTH_TYPE = "MyToken";
 
     @Override

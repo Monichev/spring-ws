@@ -10,7 +10,8 @@ import com.monichev.spring.ws.security.entity.User;
 import org.springframework.stereotype.Service;
 
 @Service
-public final class UserAuthenticationService {
+public class UserAuthenticationService {
+
     private final Map<User, String> userSessions = new HashMap<>();
 
     public Optional<String> login(User user) {

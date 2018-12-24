@@ -13,7 +13,7 @@ import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 
 @Endpoint
-public class ApiBEndpoint {
+class ApiBEndpoint {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ApiBEndpoint.class);
 

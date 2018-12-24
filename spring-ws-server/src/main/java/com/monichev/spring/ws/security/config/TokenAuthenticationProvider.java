@@ -12,7 +12,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
 
 @Component
-final class TokenAuthenticationProvider extends AbstractUserDetailsAuthenticationProvider {
+class TokenAuthenticationProvider extends AbstractUserDetailsAuthenticationProvider {
 
     private final UserAuthenticationService userAuthenticationService;
 

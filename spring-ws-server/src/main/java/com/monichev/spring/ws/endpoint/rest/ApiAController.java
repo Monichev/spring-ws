@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/spring-rs/api-a")
-public class ApiAController implements ApiA {
+class ApiAController implements ApiA {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ApiAController.class);
 
