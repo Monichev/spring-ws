@@ -86,7 +86,7 @@
         <executions>
           <execution>
             <id>unpack-wsdl</id>
-            <phase>package</phase>
+            <phase>prepare-package</phase>
             <goals>
               <goal>unpack</goal>
             </goals>
@@ -109,7 +109,7 @@
           </execution>
           <execution>
             <id>unpack-common-xsd</id>
-            <phase>package</phase>
+            <phase>prepare-package</phase>
             <goals>
               <goal>unpack</goal>
             </goals>
