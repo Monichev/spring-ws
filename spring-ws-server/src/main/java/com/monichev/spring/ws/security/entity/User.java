@@ -17,7 +17,7 @@ public class User implements UserDetails {
 
     public User(String username, String password, Integer level) {
         this.username = requireNonNull(username);
-        this.password = requireNonNull(password);
+        this.password = password;
         this.level = level;
     }
 
