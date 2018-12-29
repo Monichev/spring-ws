@@ -5,7 +5,7 @@ import com.monichev.spring.ws.api_b.types.TypeB;
 import com.monichev.spring.ws.common.types.Timestamp;
 
 public class TypeConverter {
-    public static String toString(Timestamp timestamp) {
+    private static String toString(Timestamp timestamp) {
         if (timestamp == null) {
             return null;
         }

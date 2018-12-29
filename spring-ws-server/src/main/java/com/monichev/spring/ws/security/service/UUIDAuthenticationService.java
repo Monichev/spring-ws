@@ -1,22 +1,17 @@
 package com.monichev.spring.ws.security.service;
 
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
 import java.util.Optional;
-import java.util.Set;
 import java.util.UUID;
 
 import com.monichev.spring.ws.security.entity.User;
 
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.web.authentication.preauth.PreAuthenticatedAuthenticationToken;
 import org.springframework.stereotype.Service;
 
 @Service
-public final class UUIDAuthenticationService implements UserAuthenticationService {
+public class UUIDAuthenticationService implements UserAuthenticationService {
+
     private final Map<User, String> userSessions = new HashMap<>();
 
     private final HashMap<User, String> users = new HashMap<>();

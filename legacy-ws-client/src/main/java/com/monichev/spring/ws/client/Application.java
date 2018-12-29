@@ -17,7 +17,7 @@ import com.monichev.spring.ws.client.util.TypeConverter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class Application {
+class Application {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(Application.class);
 
