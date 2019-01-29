@@ -6,7 +6,7 @@ import com.monichev.spring.ws.common.types.Timestamp;
 
 public class TypeUtils {
 
-    private static Timestamp createTimestamp(double seconds) {
+    public static Timestamp createTimestamp(double seconds) {
         Timestamp timestamp = new Timestamp();
         timestamp.setSeconds((long) seconds);
         timestamp.setMicros((int) ((seconds - timestamp.getSeconds()) * 1e6));

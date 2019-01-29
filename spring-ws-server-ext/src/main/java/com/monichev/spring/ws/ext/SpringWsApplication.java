@@ -1,4 +1,4 @@
-package com.monichev.spring.ws;
+package com.monichev.spring.ws.ext;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

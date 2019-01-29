@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://ws.spring.monichev.com/api-ext/types"
+    xmlns="http://ws.spring.monichev.com/api-b/types"
+    xmlns:common="http://ws.spring.monichev.com/common/types"
+    elementFormDefault="qualified">
+
+  <xsd:import namespace="http://ws.spring.monichev.com/common/types" schemaLocation="common.xsd"/>
+
+  <xsd:complexType name="typeExt">
+    <xsd:annotation>
+      <xsd:documentation>Type Ext</xsd:documentation>
+    </xsd:annotation>
+    <xsd:sequence>
+      <xsd:element name="id" type="xsd:long">
+        <xsd:annotation>
+          <xsd:documentation>Identification number</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="name" type="xsd:string">
+        <xsd:annotation>
+          <xsd:documentation>Name</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="timestamp" type="common:timestamp">
+        <xsd:annotation>
+          <xsd:documentation>Timestamp</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+
+</xsd:schema>

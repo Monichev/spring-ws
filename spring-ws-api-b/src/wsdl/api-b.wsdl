@@ -40,7 +40,7 @@
 
     <wsdl:portType name="apiB">
         <wsdl:operation name="getTypeBList">
-            <wsdl:documentation>Get a list of all Type A objects</wsdl:documentation>
+            <wsdl:documentation>Get a list of all Type B objects</wsdl:documentation>
             <wsdl:input message="tns:getTypeBListRequest"/>
             <wsdl:output message="tns:getTypeBListResponse"/>
         </wsdl:operation>
